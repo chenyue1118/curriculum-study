@@ -133,6 +133,14 @@ flex-wrap: wrap | nowrap | wrap-reverse
   * stretch 拉伸对齐
   * baseline 基线对齐
 
+#### 子容器
+- flex-frow 子容器弹性伸展比例。把剩余的空间按照比例分配给子容器。
+
+- flex-shrink 子容器的弹性收缩比例。当子容器超出的部分，会按照对应的比例给子容器减去相对应的值
+
+- flex-basis TODO
+
+
 
 
 
