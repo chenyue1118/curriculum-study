@@ -6,40 +6,43 @@ module.exports = {
   mode: 'development',
   // entry: './src/index.js',
   entry: {
-    index: './src/index.js',
+    // index: './src/index.js',
+    // print: './src/print.js',
+    // another: './src/another-module.js'
+    index: {
+      import: './src/index.js',
+      dependOn: 'shared'
+    },
+    another: {
+      import: './src/another-module.js',
+      dependOn: 'shared'
+    },
+    shared: 'lodash'
   },
   devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  },
+  // devServer: {
+  //   contentBase: './dist'
+  // },
   plugins: [
     new CleanWebpackPlugin({
       // cleanStaleWebpackAssets: false
     }),
     new HtmlWebpackPlugin({
-      title: '管理- Caching'
+      title: '管理- Development'
     })
   ],
   output: {
     // filename: 'bundle.js',
-    filename: '[name].[contenthash].js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     // publicPath: '/'
   },
-  optimization: {
-    moduleIds: 'deterministic',
-    runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
-        }
-      }
-    }
-  },
+  // optimization: {
+  //   // runtimeChunk: 'single'
+  //   splitChunks: {
+  //     chunks: 'all'
+  //   }
+  // },
   module: {
     rules: [
       {
