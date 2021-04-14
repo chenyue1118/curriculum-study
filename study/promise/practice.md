@@ -100,20 +100,6 @@
 请写一段代码实现这个需求，要求尽可能快速地将所有图片下载完成。
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ```javascript
   var urls = []
 
@@ -150,6 +136,7 @@
     } else {
       const url = targets[index]
       loading(url).then(res => {
+        console.log('result', res);
         result.push(res)
         index += 1
         helper()
