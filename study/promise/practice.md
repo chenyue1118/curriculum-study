@@ -147,7 +147,22 @@
       }
     }
   }
-
   helper()
 
+  // ------------------------------
+  const helper = (index) => {
+    if (len === index) {
+      console.log('promises', promises);
+      return Promise.all(promises)
+    } else {
+      return Promise.race(promises).then(res => {
+        promises[res] = loading(sequence[index]).then(() => {
+          return res
+        })
+        return helper(index + 1)
+      })
+    }
+  }
+
+  return helper(0)
 ```
